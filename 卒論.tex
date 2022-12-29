@@ -1,0 +1,33 @@
+\documentclass[12pt,a4paper]{jsreport}
+\usepackage{bm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage[hang,small,bf]{caption}
+\usepackage[subrefformat=parens]{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{geometry}
+% ページの余白を1.25インチにする
+\geometry{
+    left=1.25truein,
+    right=1.25truein,
+    top=1.25truein,
+    bottom=1.25truein,
+}
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\cleardoublepage}{}{}{}
+\patchcmd{\chapter}{\clearpage}{}{}{}
+
+\title{埋設されたパイプの位置・方向推定のための\\偏波感受型圧縮センシング}
+\author{\\指導教員　　　　廣瀬明教授　\\      　　　　　　　　夏秋嶺准教授\\
+03-210499　　　高原陽太
+}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
+
+
+
+\end{document}
