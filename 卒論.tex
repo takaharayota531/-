@@ -14,6 +14,7 @@
     bottom=1.25truein,
 }
 \usepackage{etoolbox}
+\usepackage{physics} 
 \patchcmd{\chapter}{\cleardoublepage}{}{}{}
 \patchcmd{\chapter}{\clearpage}{}{}{}
 
@@ -111,7 +112,7 @@ $\tau$を計測することで図\ref{地中レーダの様子}のように物�
 　偏波とは図\ref{偏波のイメージ}のように電界と磁界が直行しながら伝搬する波における電界の向きのことを指す。電磁波を用い、目標物に
 照射することで散乱波から目標物に関する情報を得ることができるため、GPRにも用いられている。単に埋設物の散乱係数の振幅だけで
 なく位相の情報も利用することができるという利点を持つ。
-\\todo:ここをフルポラリメトリ用に書きなおす
+todo:ここをフルポラリメトリ用に書きなおす。
 \\　特に埋設物がパイプなどの線状物体である時に偏波の状態を観測することは重要になる。というのも図\ref{偏波方向とパイプの向きによる反射強度の違い}
 のように電磁波の偏波方向と線状物体の方向が一致するときに大きな散乱が起こるのに対して、偏波方向が線状物体と直行すると散乱が非常に小さくなってしま
 うからである。ゆえにパイプを検出する際には偏波の向きと計測対象の向きを一致させることが必要となる。
@@ -130,6 +131,16 @@ $\tau$を計測することで図\ref{地中レーダの様子}のように物�
     \end{figure}
 
 
+\section{ポアンカレ球}    
+　上記偏波情報をより表現しやすくするために、ポアンカレ球を用いる。
+
+% \begin{equation}
+%   \bm{g} =
+      
+%       \label{calc_stokes_vector}
+%   \end{equation}
+
+
 \section{圧縮センシングとモデル内一様性による圧縮}
 　圧縮センシングとは、対象となる信号をできるだけ少ない観測点数から本来あるべき密なデータを抽出する技術のことである。まばらな計測点から
 密なデータを構成することで、データ観測にかかる時間を短縮することを可能とする。
@@ -140,18 +151,272 @@ $\tau$を計測することで図\ref{地中レーダの様子}のように物�
 モデルの位置と目標物の位置が一致したとき、その領域内では散乱特性は一様になり、領域外では散乱特性は一様とならない。
 このことを利用して地中の目標物をその形や大きさを含めて検出することができる。
 
+\section{圧縮センシングとスパース性}
+　圧縮センシングとは、対象となる信号をできるだけ少ない観測点数から本来あるべき密なデータを抽出する技術のことである。
+N次元の未知ベクトルを$\bm{x}$、M次元の観測データを$\bm{y}$、M$\times$N次元の観測行列$\bm{A}$とすると、
+\begin{equation}
+  \bm{y} =
+  \bm{A}\bm{x}
+      \label{compressive sensing}
+  \end{equation}
+
+% と表現することができる。観測データが未知ベクトルの次元よりも大きい、または等しいとき(M $\geqq$ N)、この線形方程式を
+% 解くことができる。
+しかし、式(\ref{compressive sensing})の未知数が方程式の数よりも多い場合(M<N)、式(\ref{compressive sensing})は劣決定問題となり、
+解を一意に求めることができない\cite{CSAKita}。
+\\　ここで$\bm{s}$がスパース性(後述)を持つ場合に、次式を満たす$\bm{s}$を決定することができる。
+
+
+
+\begin{figure}[h]
+  \begin{center}
+      \includegraphics[width=12cm]{./slide_image/compressiveSensingImage.png}
+
+      \caption{圧縮センシングのアルゴリズム}\label{CompressiveSensingImage}
+  \end{center}
+\end{figure}
+
+% \begin{equation}
+%   \bm{y} =
+%   \bm{A}\bm{x}
+%       \label{sparse equation}
+%   \end{equation}
+
+  
+%   \begin{equation*}
+%     \begin{aligned}
+%         & \text{maximize}
+%             & {\bf c}^T{\bf x} \\
+%         & \text{subject to}
+%             & A{\bf x} \le {\bf b} \\
+%             & & {\bf x} \ge {\bf 0}\\
+%     \end{aligned}
+% \end{equation*}
+上記のように、圧縮センシングの少数観測による信号を推定する方法を、圧縮センシングと呼び、
+GPRの計測にかかる時間を短縮することに利用する。
+\\　スパース性についても言及しておく。式(\ref{CompressiveSensingImage})のように劣決定系である方程式を解く時に
+未知ベクトル$\bm{x}$の各成分がほとんど$0$であるとする。この場合$0$をとる成分は方程式から除外することができる。解が非零で
+ある個数を$K$とすると、$M$個の方程式から実質的には$K$個の非零成分を求めることと同義であるため$M<N$であったとしても、
+$M>K$であれば解くことが可能である\cite{sparseModeling}。
+\\　このようにほとんどの成分が零を持つ、あるいは期待される性質をスパース性と呼ぶ。
+
+
+\section{モデル内一様性による圧縮センシング}
+ここに今井さんの手法を記載する
+　地中埋設物、主に地雷の検知のためにGPRが用いられている。しかし計測点が多数になり計測時間が膨大になってしまう。todo:ここらへんの記述適当
+\\　また、これらの手法のほとんどが散乱の強度を用いたものであった。しかし強度のみの情報では目的の埋設物とその他関係がない埋設物との区別が困難になってしまう。
+\\　強度以外の情報を用いた手法として\cite{hirose1}～\cite{hirose3}にあるようにテクスチャなどの高次元な計測情報を特徴量として用いたものが挙げられる。
+この手法では各計量点において空間、周波数領域における相関を含む特徴量ベクトルを構成する。それらのベクトルは自己組織化マップによって分類される。
+\\　また\cite{imai}では地中に埋まっている地雷を模した円柱型のプラスチック模型を探知する際に円形のモデルを仮定して圧縮センシングを行っている。
+\\　この手法について紹介したい。円形モデルを用い、モデル内では材質や表面状態が変わらないものと考え、散乱特性が一様である(Model-Based Homogeneity:MBH)
+ことを考え、MBHを指標としてスパースな信号を構成し、圧縮センシングを適用する。
+\\　まず計測領域内で空間的にまばらな計測を行う。各空間座標$(x_i,y_j)$について複数周波数$f_k$によって得られた複素散乱係数を$s(x_i,y_j,f_k)$
+とし散乱ベクトルとして表す。
+
+
+\begin{equation}
+  \bm{s} =
+      \left[
+      \begin{array}{rrrr}
+      s(x_1,y_1,f_1)&s(x_1,y_1,f_2)&\cdots 
+      % &s(x_i,y_j,f_k)&\cdots
+      \end{array}
+      \right]^\mathrm{T}
+      \label{scatteringVector}
+  \end{equation}
+
+  そしてその散乱ベクトルをそのままその座標での特徴量ベクトル$\bm{K(\bm{r})}$として利用する。
+
+  \begin{equation}
+    \bm{K(\bm{r})} =
+        \left[
+        \begin{array}{rrrr}
+        s(\bm{r},f_1)&s(\bm{r},f_2)&\cdots 
+        % &s(x_i,y_j,f_k)&\cdots
+        \end{array}
+        \right]^\mathrm{T}
+        \label{featureVector}
+    \end{equation}
+
+    　ここで図\ref{円形モデル}のようなモデルを図\ref{モデルによる計測領域の掃引}
+    計測領域内で掃引する。図\ref{円形モデル}の白い部分が地雷本体の形状を反映したモデルである。
+    モデルの位置と地雷の位置が一致していれば白い領域内の特徴量ベクトルは一様であると考えられる。
+    MBHを定義する。
+    \\　モデルの中心位置を$\bm{r_m}=(x_{m},y_{m})$、図\ref{円形モデル}でのモデルの領域(白い領域)を$T(\bm{r_m})$、
+    周辺領域(黒い領域)を$S(\bm{r_m})$と定義する。それぞれの領域内での$\bm{K(\bm{r})}$の平均$\bar{\bm{K_T(\bm{r_m})}}$
+    及び$\bar{\bm{K_S(\bm{r_m})}}$は次のように定義できる。
+    \begin{equation}
+      \overline{K_T(\bm{r})} =
+          \sum_{\bm{r}\in \bm{T(\bm{r_m})} } \bm{K(\bm{r_m})}
+          \label{KT}
+      \end{equation}
+      \begin{equation}
+        \overline{K_S(\bm{r})} =
+            \sum_{\bm{r}\in \bm{S(\bm{r_m})} }\bm{K(\bm{r_m})}
+            \label{KS}
+        \end{equation}
+
+    　地雷がモデルの場所に位置している場合、$\overline{\bm{K_T(\bm{r_m})}}$は$\overline{\bm{K_S(\bm{r_m})}}$と大きく
+    異なるが、地雷がモデル外に位置する場合はどちらの領域も地面についての特徴量であるため
+    両者の値はほとんど変わらない。よってこの二つの領域から得られる特徴量ベクトルの類似度によって
+    地雷の有無を検知することができる。モデルと同じ形状、大きさを持つ地雷を検知するためMBHの値を
+    式(\ref{defineh})のように定義する。
+
+
+    \begin{equation}
+      % \renewcommand{\Re}{\operatorname{Re}}
+      {h(\bm{r_m})} = 
+      1-\frac{\Re( (\overline{\bm{K_T(\bm{r_m})}})^{*} \overline{\bm{K_S(\bm{r_m})}})}
+      {|\overline{\bm{K_T(\bm{r_m})}}||\overline{\bm{K_S(\bm{r_m})}}|}
+          \label{defineh}
+      \end{equation}
+      
+
+
+    \begin{figure}[htbp]
+      \begin{minipage}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[height=7cm,width=8cm]{./image/sweep.pdf}
+        \caption{アンテナの動作方向}\label{アンテナの動作方向}
+      \end{minipage}
+      \begin{minipage}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[height=5cm,width=5cm]{./slide_image/spheremodel1.png}
+        \caption{円形モデル}\label{円形モデル}
+      \end{minipage}
+    \end{figure}
+
+    \begin{figure}[h]
+      \begin{center}
+          \includegraphics[width=12cm]{./slide_image/spheremodel2.png}
+          \caption{モデルによる計測領域の掃引}\label{モデルによる計測領域の掃引}
+      \end{center}
+    \end{figure}
+    
+ここで$h$は$\overline{\bm{K_T(\bm{r})}}$と$\overline{\bm{K_S(\bm{r})}}$
+が複素空間内で同方向の時に最小値$0$、逆方向の時に最大値$2$を示す。各計測点に
+おけるMBHの値をまとめて下記のようにベクトルとして表す。
+\begin{equation}
+  \bm{h} =
+      \left[
+      \begin{array}{rrrr}
+      h(\bm{r_{m1}})&h(\bm{r_{m2}})&h(\bm{r_{m3}})&\cdots
+      \end{array}
+      \right]^\mathrm{T}
+      \label{mbh1}
+  \end{equation}
+
+  最終的に$h$の空間分布を得ることができ、$h$が極大を示す座標が
+  地雷の中心であると考えられる。
+
+  \section{MBHを用いた圧縮センシング}
+  　一様性$h(\bm{r})$は地雷がある位置でのみ大きな値になるスパース性を持つ。
+  よって図\ref{圧縮センシングのフローチャート}のフローチャートにあるような手順を踏む。
+  \\　空間的にまばらな計測を行った後、計測結果を補間し散乱係数$\bm{s}$を得る。これを
+  $\bm{h}$ができるだけスパースになるように繰り返し更新することで$\bm{s}$を推定する。
+
+
+  \begin{figure}[h]
+    \begin{center}
+     \includegraphics[width=10cm]{./slide_image/imai_flowchart.png}
+    \caption{圧縮センシングのフローチャート}\label{圧縮センシングのフローチャート}
+    \end{center}
+    \end{figure}
+
+　まず複素散乱係数の補間を行う。
+% \\　未計測の座標を$\bm{r\{u}}$($u \in U$)、計測済みの座標を$\bm{r\{v}}$($v \in V$)とする。
+% ここで$U$は未計測の座標、$V$は計測済みの座標の集合とする。未計測の座標$\bm{r_{u}}$の散乱係数
+% $s(\bm{r_{u}},f)$を次のように補間する。
+
+\begin{equation}
+  \bm{r_{uv}} =
+  ||\bm{r_{u}}-\bm{r_{v}}||
+      \label{uvdistance}
+  \end{equation}
+  
+　補間のためにそれぞれの$f_{k}$における振幅$\hat{s_{a}}(\bm{r_{u}},f_{k})$と位相$\hat{s_{p}}(\bm{r_{u}},f_{k})$
+を用いて未計測の座標$s(\bm{r_{u}},f_{k})$を計算する。
+
+\begin{equation}
+  s(\bm{r_{u}},f_{k})=
+  \hat{s_{a}}(\bm{r_{u}},f_{k})e^{i\hat{s_{p}}(\bm{r_{u}},f_{k})}
+      \label{s_interpolate}
+  \end{equation}
+　この補間作業を未計測の座標のすべての座標について行い初期値とする。
+\begin{equation}
+  % \renewcommand{\Re}{\operatorname{Re}}
+  \bm{s_{0}} = 
+  \left[
+      \begin{array}{rrrr}
+      s(\bm{r_{1}},f_{1})&s(\bm{r_{1}},f_{2})&s(\bm{r_{1}},f_{3})&\cdots
+      \end{array}
+      \right]^\mathrm{T}
+      \label{defines0}
+  \end{equation}
+
+  　次に$\bm{h}$のスパース度を評価するために$\bm{h}$の$p$ノルム($0<p<1$)の$p$乗を評価関数$g(\bm{h})$とする。
+
+  \begin{equation}
+    g(\bm{h}) 
+    = ||\bm{h}||_{p}^{p}
+    = \sum_{l} |h(\bm{r_{ml}})|^{p}
+        \label{評価関数}
+    \end{equation}
+
+  \begin{equation}
+    \frac{\partial g}{\partial s(\bm{r},f_{k})}
+    = \sum_{\bm{r_{ml}}}  \frac{\partial |h(\bm{r_{ml}})|^{p} }{\partial s(\bm{r},f_{k})}
+    =p \sum_{\bm{r_{ml}}} |h(\bm{r_{ml}})|^{p-1} \frac{\partial h(\bm{r_{ml}}) }{\partial s(\bm{r},f_{k})}  \frac{ h(\bm{r_{ml}}) }{ |h(\bm{r_{ml}}) |}
+        \label{gの微分}
+    \end{equation}
+
+
+  % \begin{equation}
+  %   \frac{\partial  h(\bm{r_{ml}})}{\partial s(\bm{r},f_{k})}
+  %   % = \frac{\partial}{\partial s(\bm{r},f_{k})} 1-\frac{\Re( (\overline{\bm{K_T(\bm{r_m})}})^{*} \overline{\bm{K_S(\bm{r_m})}})
+  %   % {|\overline{\bm{K_T(\bm{r_m})}}||\overline{\bm{K_S(\bm{r_m})}}|}}
+  %   =-\frac{1}{2}
+    
+  %       \label{hの微分}
+  %   \end{equation}    
+
+  \begin{equation}
+    \frac{\partial}{\partial s(\bm{r},f_{k})} \frac{\bm{K({\bm{r_{ml}}})}}{|\bm{K({\bm{r_{ml}}})}|}
+    = \frac{ \frac{\partial \bm{K(\bm{r_{ml}})} }{\partial s(\bm{r},f_{k})}|\bm{K({\bm{r_{ml}}})}|  - 
+      \bm{K({\bm{r_{ml}}})}\frac{\partial |\bm{K(\bm{r_{ml}})}| }{\partial s(\bm{r},f_{k})}}{|\bm{K({\bm{r_{ml}}})}|^2}
+        \label{正規化hの微分}
+    \end{equation}
+
+    \begin{equation}
+      \frac{\partial |\bm{K({\bm{r_{ml}}})}|}{\partial s(\bm{r},f_{k})} 
+      = \frac{\partial}{\partial s(\bm{r},f_{k})}(\bm{K^{*}({\bm{r_{ml}}})}\bm{K({\bm{r_{ml}}})})^{\frac{1}{2}}
+      = \frac{ \frac{\partial \bm{K^{*}(\bm{r_{ml}})} }{\partial s(\bm{r},f_{k})}\bm{K({\bm{r_{ml}}})}  - 
+      \bm{K^{*}({\bm{r_{ml}}})}\frac{\partial \bm{K(\bm{r_{ml}})} }{\partial s(\bm{r},f_{k})}}{2|\bm{K({\bm{r_{ml}}})}|}
+          \label{絶対値kの微分}
+      \end{equation}
+
+  % \begin{equation}
+  %   \phi_{n}(\alpha) 
+  %   = g(\bm{s_{n}}+\alpha_{n}\bm_{d_{n}})
+  %       \label{armijo}
+  %   \end{equation}   
+  
+    % \begin{equation}
+    %   \phi_{n}(\alpha) 
+    %   = g(\bm{s_{n}})+c(\nabla_{\bm{s}}g(\bm{s_{n}})\bm{d_{n}}+\nabla_{\bm{s^{*}}}g(\bm{s_{n}})\bm{d^{*}_{n}})\alpha_{n}
+    %       \label{armijocondition}
+    %   \end{equation}  
 
 \chapter{提案手法}
 \section{従来の手法}
-　地中埋設物、主に地雷の検知のためにGPRが用いられている。しかし計測点が多数になり計測時間が膨大になってしまいがちなため
-圧縮センシングの手法が利用されてきた。これによって少ない計測点から地中に埋まっている物体の可視化が可能になる。
-\\　これらの手法のほとんどが散乱の強度を用いたものであった。しかし強度のみの情報では目的の埋設物とその他関係がない埋設物との区別が困難になってしまう。
+　地中埋設物、主に地雷の検知のためにGPRが用いられている。しかし計測点が多数になり計測時間が膨大になってしまう。todo:ここらへんの記述適当
+\\　また、これらの手法のほとんどが散乱の強度を用いたものであった。しかし強度のみの情報では目的の埋設物とその他関係がない埋設物との区別が困難になってしまう。
 \\　強度以外の情報を用いた手法として\cite{hirose1}～\cite{hirose3}にあるようにテクスチャなどの高次元な計測情報を特徴量として用いたものが挙げられる。
 この手法では各計量点において空間、周波数領域における相関を含む特徴量ベクトルを構成する。それらのベクトルは自己組織化マップによって分類される。
 \\　また\cite{imai}では地中に埋まっている地雷を模した円柱型のプラスチック模型を探知する際に円形のモデルを仮定して圧縮センシングを行っている。
 \\　この手法について紹介したい。まず計測点数を考えるときにスパース性を利用すると少ない点数で済む。これは測定して得られた信号にゼロ成分が多いという条件付け
 をすることで計測データを減らせるという圧縮センシングの考えに基づく。
-\\　次に空間座標$(x_{i},y_{i})$から位置ベクトル$\bm{r}=(x_{i},y_{i})$を定め、$h(\bm{r_{m}})$を円形モデルと位置$\bm{r_{m}}$での計測値との一致度合とする。この時、
+\\　todo:ここ合ってるん？次に空間座標$(x_{i},y_{i})$から位置ベクトル$\bm{r}=(x_{i},y_{i})$を定め、$h(\bm{r_{m}})$を円形モデルによる予想値と位置$\bm{r_{m}}$での計測値との一致度合とする。この時、
 \begin{equation}
   \bm{h} =
       \left[
@@ -171,10 +436,75 @@ $\tau$を計測することで図\ref{地中レーダの様子}のように物�
 %     \end{equation}
 
 
+このベクトル$\bm{h}$を一様性ベクトルと考える。
+\\　まばらな計測結果による散乱係数を$\bm{s_{0}}$とする。これを$\bm{h}$ができるだけスパース性を満たすように繰り返し更新し、実際の密計測データ$\bm{s}$を推定する。そこで
+$p$($0<p<1$)を用いて評価関数$f(\bm{h})$を次式のように定める。
+\begin{equation}
+  f(\bm{h})=\sum_{l}|h(\bm{r_{ml}})|^{p}
+  \end{equation}
+
+関数$f(\bm{h({\bm{s}})})$の$\bm{s}$に関する勾配を求め、ステップ幅$\alpha_{t}$を用いて$\bm{s_{t}}$を更新する。
+\begin{equation}
+  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{s}}*f(\bm{s_{t}})
+  \end{equation}
+
+として評価関数$f$が十分収束するまで$\bm{s}$の更新を行い、最終的に$h(\bm{r_{m}})$が極大を示す場所$\bm{r_{m}}$に目標物が埋まっていると考えられる。この手順に
+よってまばらな点数での計測を可能にしている。
 
 
 
+\section{提案手法todo:ここ大分書き換える}
+　従来手法のようにパイプ管をモデル化し、それによって圧縮センシングを行うことを提案する。パイプ管をモデル化する際にまず文献\cite{imai}のように一様とみなせる領域を考える。パイプのような線状の物体は線方向に一様である。
+ゆえに線状方向に関しては計測点数を減らすことが可能となる。
+\\　それゆえパイプの向きを推定することが必要となる。しかし実際にGPRを用いた時、図\ref{電波の散乱の様子}のようにパイプにぶつかった電磁波はあらゆる方向に散乱し、また
+図\ref{偏波方向とパイプの向きによる反射強度の違い}のように電界の向きによって散乱波の振幅が大きく異なる。
+\\　そのため例えばパイプの向きに垂直に偏波を照射してしまった場合、散乱の大きさによって埋設物を検知するGPR上ではパイプの存在を検知しにくい。
+よって向きがわかってないパイプをGPRによって計測する場合、偏波の向きを水平、垂直どちらに対しても行う必要がある。
 
+\begin{figure}[h]
+  \begin{center}
+   \includegraphics[width=7cm]{./image/scattering.pdf}
+  \caption{電波の散乱の様子}\label{電波の散乱の様子}
+  \end{center}
+  \end{figure}
+
+　逆に言えば、偏波を水平、垂直に照射し、散乱波の強さを比較することでパイプの向きがより水平方向あるいは垂直方向
+か分かる。ゆえにデータ処理の際、ある測定点での散乱波の偏波依存性からパイプの向きが推定でき、
+その方向への測定点数を減らすことに繋がる。よって圧縮センシングを行う際、偏波の情報を加味することでより
+測定時間の短縮が期待できると考える。
+\\　この時フルポラリメトリを用いてデータ取得を行う。すなわち水平偏波(H)、垂直偏波(V)の二通りを送信し、水平、垂直のアンテナ
+で受け取ることにより4通りのデータを取得するようにする。これを式で表すと、散乱行列は式(\ref{フルポラリメトリ})のようになる。
+
+\begin{equation}
+  S =
+      \left[
+      \begin{array}{rrr}
+      S_{HH} & S_{HV}  \\
+      S_{VH} & S_{VV} 
+      
+      \end{array}
+      \right]\label{フルポラリメトリ}
+  \end{equation}
+この散乱行列を従来手法の散乱係数と置き換え、式(\ref{mbh})をパイプの向きも考慮したものにすることで上記手法を実現する。
+理論の詳細はこれから整備する。
+
+
+
+\begin{equation}
+  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{HH}}}*f(\bm{s_{t}})
+  \end{equation}
+
+\begin{equation}
+  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{HV}}}*f(\bm{s_{t}})
+  \end{equation}
+
+\begin{equation}
+  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{VH}}}*f(\bm{s_{t}})
+  \end{equation}
+
+\begin{equation}
+  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{VV}}}*f(\bm{s_{t}})
+  \end{equation}      
 
 
 
@@ -207,6 +537,10 @@ $\tau$を計測することで図\ref{地中レーダの様子}のように物�
     \bibitem{hirose3}R.Natsuaki and A.Hirose, “Circular property of complex-valued
     correlation learning in CMRF-based filtering for synthetic aperture
     radar interferometry,” Neurocomputing, vol.134, pp.165-172, 2014.
+    \bibitem{CSAKita}D.Kozaki, Shin-ya Matsushita and Li Xu, "Reconstruction of MRI by Using Adaptive Compressive Sensing
+    Algorithm," 計測自動制御学会東北支部, 第 306 回研究集会December 2016.
+    \bibitem{sparseModeling}M.Ohzeki, 「今日からできるスパースモデリング」, 2015. 
+    % https://www.topic.ad.jp/sice/htdocs/papers/306/306-9.pdf
    %  https://www.sciencedirect.com/science/article/pii/S092523121400126X
    
     

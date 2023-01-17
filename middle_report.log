@@ -1,0 +1,496 @@
+This is e-pTeX, Version 3.141592653-p4.0.0-220214-2.6 (utf8.sjis) (TeX Live 2022) (preloaded format=platex 2022.9.18)  30 DEC 2022 10:07
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**c:/Users/denjo/Documents/graduate_thesis/middle_report
+(c:/Users/denjo/Documents/graduate_thesis/middle_report.tex
+pLaTeX2e <2021-11-15> (based on LaTeX2e <2022-06-01> patch level 5)
+L3 programming layer <2022-08-30> (c:/texlive/2022/texmf-dist/tex/platex/jsclasses/jsreport.cls
+Document Class: jsreport 2022/09/13 jsclasses (okumura, texjporg)
+\jsc@mpt=\dimen154
+\jsc@mmm=\dimen155
+\jsc@smallskipamount=\skip47
+LaTeX Info: Redefining \textmc on input line 501.
+LaTeX Info: Redefining \textgt on input line 503.
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 565.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 759.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 759.
+\fullwidth=\dimen156
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 898.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 898.
+\c@part=\count184
+\c@chapter=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\@abstractbox=\box68
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\jsc@tocl@width=\dimen157
+\@lnumwidth=\dimen158
+\bibindent=\dimen159
+(c:/texlive/2022/texmf-dist/tex/platex/jsclasses/jslogo.sty
+Package: jslogo 2019/07/25 okumura, texjporg
+LaTeX Info: Redefining \TeX on input line 82.
+LaTeX Info: Redefining \LaTeX on input line 135.
+LaTeX Info: Redefining \LaTeXe on input line 188.
+)
+\heisei=\count193
+) (c:/texlive/2022/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2022/01/05 v1.2f Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup5
+\symboldletters=\mathgroup6
+\symboldsymbols=\mathgroup7
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+\symboldmincho=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+) (c:/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (c:/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2022/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (c:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvipdfmx.def on input line 107.
+ (c:/texlive/2022/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+File: dvipdfmx.def 2022/04/16 v5.0l Graphics/color driver for dvipdfmx
+))
+\Gin@req@height=\dimen160
+\Gin@req@width=\dimen161
+) (c:/texlive/2022/texmf-dist/tex/latex/ascmac/ascmac.sty
+Package: ascmac 2020/01/15 v2.1 ascmac wrapper (community edition) 
+ (c:/texlive/2022/texmf-dist/tex/latex/ascmac/tascmac.sty
+Package: tascmac 2020/01/15 v2.1 ascmac package (community edition) 
+\@savetbaselineshift=\dimen162
+\@saveybaselineshift=\dimen163
+\scb@x=\box69
+\scscb@x=\box70
+\@bw=\dimen164
+\@nbox=\box71
+\@nbody=\box72
+\@scw=\dimen165
+\ascmac@hoboxa=\box73
+\ascmac@hoboxb=\box74
+\@itemh=\dimen166
+\@iboxpos=\toks18
+\@iboxstr=\box75
+\@bwsp=\box76
+\@@bwsp=\box77
+\@bcal=\count194
+\shaderule=\dimen167
+)) (c:/texlive/2022/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+ (c:/texlive/2022/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen168
+\captionmargin=\dimen169
+\caption@leftmargin=\dimen170
+\caption@rightmargin=\dimen171
+\caption@width=\dimen172
+\caption@indent=\dimen173
+\caption@parindent=\dimen174
+\caption@hangindent=\dimen175
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->{\small \advance \leftskip .0628\linewidth \advance \rightskip .0628\linewidth \vskip \abovecaptionskip \sbox \@tempboxa {#1\hskip 1zw\relax #2}\ifdim \wd \@tempboxa <\hsize \centering \fi #1{\hskip 1zw\relax }#2\par \vskip \belowcaptionskip } on input line 1176.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count195
+\c@continuedfloat=\count196
+) (c:/texlive/2022/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
+\c@subfigure=\count197
+\c@subtable=\count198
+) (c:/texlive/2022/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (c:/texlive/2022/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (c:/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count199
+\Gm@cntv=\count266
+\c@Gm@tempcnt=\count267
+\Gm@bindingoffset=\dimen176
+\Gm@wd@mp=\dimen177
+\Gm@odd@mp=\dimen178
+\Gm@even@mp=\dimen179
+\Gm@layoutwidth=\dimen180
+\Gm@layoutheight=\dimen181
+\Gm@layouthoffset=\dimen182
+\Gm@layoutvoffset=\dimen183
+\Gm@dimlist=\toks19
+) (c:/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count268
+) (c:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
+File: l3backend-dvips.def 2022-08-30 L3 backend support: dvips
+\l__pdf_internal_box=\box78
+\g__pdf_backend_object_int=\count269
+\l__pdf_backend_content_box=\box79
+\l__pdf_backend_model_box=\box80
+\g__pdf_backend_annotation_int=\count270
+\g__pdf_backend_link_int=\count271
+\g__pdf_backend_link_sf_int=\count272
+)
+No file middle_report.aux.
+\openout1 = `middle_report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+*geometry* driver: auto-detecting
+*geometry* detected driver: dvips
+*geometry* verbose mode - [ preamble ] result:
+* driver: dvips
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(75.2805pt, 446.94687pt, 75.2805pt)
+* v-part:(T,H,B)=(75.2805pt, 694.48584pt, 75.2805pt)
+* \paperwidth=717.0044pt
+* \paperheight=1014.03809pt
+* \textwidth=446.94687pt
+* \textheight=694.48584pt
+* \oddsidemargin=3.01051pt
+* \evensidemargin=3.01051pt
+* \topmargin=-27.94354pt
+* \headheight=20.0pt
+* \headsep=10.95406pt
+* \topskip=12.76073pt
+* \footskip=23.71478pt
+* \marginparwidth=9.24687pt
+* \marginparsep=18.49374pt
+* \columnsep=18.49374pt
+* \skip\footins=16.0pt plus 5.0pt minus 2.0pt
+* \hoffset=12.0588pt
+* \voffset=12.0588pt
+* \mag=1200
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 27.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 27.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 27.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 27.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 5.76599pt on input line 27.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 27.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 27.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 5.76599pt on input line 27.
+[1
+
+]
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 28.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 28.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 28.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 28.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 28.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 28.
+
+No file middle_report.toc.
+\tf@toc=\write3
+\openout3 = `middle_report.toc'.
+
+[1]
+第1章
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 30.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 30.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 30.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 30.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 31.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 31.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 31.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 31.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 37.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 37.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 37.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 37.
+
+LaTeX Warning: Citation `radar1' on page 2 undefined on input line 37.
+
+
+LaTeX Warning: Citation `radar2' on page 2 undefined on input line 37.
+
+File: ./image/0918.png Graphic file (type bmp)
+<./image/0918.png>
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 45.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 45.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 45.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 45.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 45.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 45.
+第2章
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 69.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 69.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 69.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 4.805pt on input line 69.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 69.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 4.805pt on input line 69.
+[2
+
+]
+
+LaTeX Warning: Reference `地中レーダの様子' on page 3 undefined on input line 81.
+
+
+LaTeX Warning: Reference `地中レーダの様子' on page 3 undefined on input line 87.
+
+File: ./image/antenna_depth_2.pdf Graphic file (type pdf)
+<./image/antenna_depth_2.pdf>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `gamma' on page 3 undefined on input line 107.
+
+
+LaTeX Warning: Reference `偏波のイメージ' on page 3 undefined on input line 112.
+
+
+LaTeX Warning: Reference `偏波方向とパイプの向きによる反射強度の違い' on page 3 undefined on input line 115.
+
+File: ./image/wave_propagation.png Graphic file (type bmp)
+<./image/wave_propagation.png>
+[3]
+File: ./image/final.png Graphic file (type bmp)
+<./image/final.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Citation `imai' on page 4 undefined on input line 136.
+
+[4]
+第3章
+
+LaTeX Warning: Citation `hirose1' on page 5 undefined on input line 145.
+
+
+LaTeX Warning: Citation `hirose3' on page 5 undefined on input line 145.
+
+
+LaTeX Warning: Citation `imai' on page 5 undefined on input line 147.
+
+[5]
+
+LaTeX Warning: Citation `imai' on page 6 undefined on input line 185.
+
+
+LaTeX Warning: Reference `電波の散乱の様子' on page 6 undefined on input line 187.
+
+
+LaTeX Warning: Reference `偏波方向とパイプの向きによる反射強度の違い' on page 6 undefined on input line 188.
+
+File: ./image/scattering.pdf Graphic file (type pdf)
+<./image/scattering.pdf>
+
+LaTeX Warning: Reference `フルポラリメトリ' on page 6 undefined on input line 204.
+
+[6]
+
+LaTeX Warning: Reference `mbh' on page 7 undefined on input line 216.
+
+第4章
+
+LaTeX Warning: Reference `実際に埋めた鉄パイプ' on page 7 undefined on input line 221.
+
+
+LaTeX Warning: Reference `実験の様子' on page 7 undefined on input line 221.
+
+
+LaTeX Warning: Reference `実験の様子' on page 7 undefined on input line 222.
+
+
+LaTeX Warning: Reference `測定用のアンテナ' on page 7 undefined on input line 222.
+
+
+LaTeX Warning: Reference `アンテナの動作方向' on page 7 undefined on input line 223.
+
+File: ./image/Exp_Situ.pdf Graphic file (type pdf)
+<./image/Exp_Situ.pdf>
+File: ./image/sweep.pdf Graphic file (type pdf)
+<./image/sweep.pdf>
+
+Overfull \hbox (26.49721pt too wide) in paragraph at lines 252--253
+ [][] 
+ []
+
+File: ./image/sweep_data.png Graphic file (type bmp)
+<./image/sweep_data.png>
+File: ./dataimage/exp_image/metalpipe.jpg Graphic file (type bmp)
+<./dataimage/exp_image/metalpipe.jpg>
+File: ./image/antenna.pdf Graphic file (type pdf)
+<./image/antenna.pdf>
+
+LaTeX Warning: Reference `測定による地中9.5cmの断面図' on page 7 undefined on input line 278.
+
+
+LaTeX Warning: Reference `偏波の向きとパイプの向き' on page 7 undefined on input line 279.
+
+
+LaTeX Warning: Reference `測定による地中9.5cmの断面図' on page 7 undefined on input line 281.
+
+
+LaTeX Warning: Reference `測定による地中11cmの断面図' on page 7 undefined on input line 282.
+
+
+LaTeX Warning: Reference `地表のデータを削除した地中9.5cmの断面図' on page 7 undefined on input line 285.
+
+
+LaTeX Warning: Reference `地表のデータを削除した地中11cmの断面図' on page 7 undefined on input line 285.
+
+[7] [8]
+File: ./image/antennaimage.png Graphic file (type bmp)
+<./image/antennaimage.png>
+File: dataimage/matlab/0918_metalpipe_(15,0,8)_xdirection_d=32cm.png Graphic file (type bmp)
+<dataimage/matlab/0918_metalpipe_(15,0,8)_xdirection_d=32cm.png>
+File: dataimage/matlab/0918_metalpipe_(15,0,8)_xdirection_d=34cm.png Graphic file (type bmp)
+<dataimage/matlab/0918_metalpipe_(15,0,8)_xdirection_d=34cm.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: dataimage/matlab/0918_metalpipe_(15,0,8)_xdirection_d=32cm_delete_unnecessary.png Graphic file (type bmp)
+<dataimage/matlab/0918_metalpipe_(15,0,8)_xdirection_d=32cm_delete_unnecessary.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: dataimage/matlab/0918_metalpipe_(15,0,8)_xdirection_d=34cm_delete_unnecessary.png Graphic file (type bmp)
+<dataimage/matlab/0918_metalpipe_(15,0,8)_xdirection_d=34cm_delete_unnecessary.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9] [10]
+
+LaTeX Warning: Reference `偏波の向きとパイプの向きを直交させたもの' on page 11 undefined on input line 323.
+
+
+LaTeX Warning: Reference `偏波の向きと垂直にしたパイプの地中12.5cmの断面図' on page 11 undefined on input line 324.
+
+File: image/vertical_and_horizontal.png Graphic file (type bmp)
+<image/vertical_and_horizontal.png>
+File: dataimage/matlab/0918_metalpipe_(15,10,8)_ydirection_d=35cm_delete_unnecessary.png Graphic file (type bmp)
+<dataimage/matlab/0918_metalpipe_(15,10,8)_ydirection_d=35cm_delete_unnecessary.png>
+
+LaTeX Warning: Reference `地表のデータを削除した地中9.5cmの断面図' on page 11 undefined on input line 342.
+
+
+LaTeX Warning: Reference `地表のデータを削除した地中11cmの断面図' on page 11 undefined on input line 342.
+
+
+LaTeX Warning: Reference `偏波の向きと垂直にしたパイプの地中12.5cmの断面図' on page 11 undefined on input line 342.
+
+
+LaTeX Warning: Reference `偏波の向きと垂直にしたパイプの地中12.5cmの断面図' on page 11 undefined on input line 343.
+
+[11
+
+]
+第5章
+[12
+
+] [13
+
+] (./middle_report.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3871 strings out of 475534
+ 67468 string characters out of 5794264
+ 422019 words of memory out of 5000000
+ 25458 multiletter control sequences out of 15000+600000
+ 488903 words of font info for 117 fonts, out of 8000000 for 9000
+ 934 hyphenation exceptions out of 8191
+ 55i,11n,63p,386b,584s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on middle_report.dvi (14 pages, 31572 bytes).
