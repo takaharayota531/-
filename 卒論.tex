@@ -15,6 +15,7 @@
 }
 \usepackage{etoolbox}
 \usepackage{physics} 
+\usepackage{amssymb}
 \patchcmd{\chapter}{\cleardoublepage}{}{}{}
 \patchcmd{\chapter}{\clearpage}{}{}{}
 
@@ -401,11 +402,10 @@ $M>K$であれば解くことが可能である\cite{sparseModeling}。
   %       \label{armijo}
   %   \end{equation}   
   
-    % \begin{equation}
-    %   \phi_{n}(\alpha) 
-    %   = g(\bm{s_{n}})+c(\nabla_{\bm{s}}g(\bm{s_{n}})\bm{d_{n}}+\nabla_{\bm{s^{*}}}g(\bm{s_{n}})\bm{d^{*}_{n}})\alpha_{n}
-    %       \label{armijocondition}
-    %   \end{equation}  
+    \begin{equation}
+      \phi_{n}(\alpha) \leqq g(\bm{s_{n}})+c(\nabla_{\bm{s}}g(\bm{s_{n}})\bm{d_{n}}+\nabla_{\bm{s^{*}}}g(\bm{s_{n}})\bm{d^{*}_{n}})\alpha_{n}
+          \label{armijocondition}
+      \end{equation}  
 
 \chapter{提案手法}
 \section{従来の手法}
@@ -491,25 +491,47 @@ $p$($0<p<1$)を用いて評価関数$f(\bm{h})$を次式のように定める。
 
 
 \begin{equation}
-  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{HH}}}*f(\bm{s_{t}})
+  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{HH}}}*g(\bm{s_{t}})
   \end{equation}
 
 \begin{equation}
-  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{HV}}}*f(\bm{s_{t}})
+  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{HV}}}*g(\bm{s_{t}})
   \end{equation}
 
 \begin{equation}
-  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{VH}}}*f(\bm{s_{t}})
+  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{VH}}}*g(\bm{s_{t}})
   \end{equation}
 
 \begin{equation}
-  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{VV}}}*f(\bm{s_{t}})
-  \end{equation}      
+  \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{S_{VV}}}*g(\bm{s_{t}})
+  \end{equation}     
 
 
 
+  \begin{equation}
+    \frac{\partial \bm{K({\bm{r}})}}{\partial S_{HH}} 
+    = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\  \dfrac{\partial (\dfrac{g_{1}}{g_{0}})}{\partial S_{HH}}  \\  \dfrac{\partial (\dfrac{g_{2}}{g_{0}})}{\partial S_{HH}} \\  \dfrac{\partial (\dfrac{g_{3}}{g_{0}})}{\partial S_{HH}} \end{pmatrix}
+    \label{polarimetricdiffSHH}
+    \end{equation}
 
-
+  \begin{equation}
+    \frac{\partial \bm{K({\bm{r}})}}{\partial S_{HV}} 
+    = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\  \dfrac{\partial (\dfrac{g_{1}}{g_{0}})}{\partial S_{HV}}  \\  \dfrac{\partial (\dfrac{g_{2}}{g_{0}})}{\partial S_{HV}} \\  \dfrac{\partial (\dfrac{g_{3}}{g_{0}})}{\partial S_{HV}} \end{pmatrix}
+    \label{polarimetricdiffSHV}
+    \end{equation}
+  
+  
+    \begin{equation}
+      \frac{\partial \bm{K({\bm{r}})}}{\partial S_{VH}} 
+      = \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\  \dfrac{\partial (\dfrac{g_{1}}{g_{0}})}{\partial S_{VH}}  \\  \dfrac{\partial (\dfrac{g_{2}}{g_{0}})}{\partial S_{VH}} \\  \dfrac{\partial (\dfrac{g_{3}}{g_{0}})}{\partial S_{VH}} \end{pmatrix}
+      \label{polarimetricdiffSVH}
+      \end{equation}
+  
+    \begin{equation}
+      \frac{\partial \bm{K({\bm{r}})}}{\partial S_{VV}} 
+      = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \\  \dfrac{\partial (\dfrac{g_{1}}{g_{0}})}{\partial S_{VV}}  \\  \dfrac{\partial (\dfrac{g_{2}}{g_{0}})}{\partial S_{VV}} \\  \dfrac{\partial (\dfrac{g_{3}}{g_{0}})}{\partial S_{VV}} \end{pmatrix}
+      \label{polarimetricdiffSVV}
+      \end{equation}
 
 
 \clearpage
