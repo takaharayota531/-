@@ -364,6 +364,10 @@ $M>K$であれば解くことが可能である\cite{sparseModeling}。
         \label{評価関数}
     \end{equation}
 
+  　評価関数$g$の値が小さいほどよりスパース度が高いことを示す。この評価関数が小さくなるように$\bm{s}$を更新する。
+  それによって$h$の値が埋設物付近以外で小さくなる。todoノルムについても言及しておく。
+
+
   \begin{equation}
     \frac{\partial g}{\partial s(\bm{r},f_{k})}
     = \sum_{\bm{r_{ml}}}  \frac{\partial |h(\bm{r_{ml}})|^{p} }{\partial s(\bm{r},f_{k})}
@@ -396,16 +400,39 @@ $M>K$であれば解くことが可能である\cite{sparseModeling}。
           \label{絶対値kの微分}
       \end{equation}
 
-  % \begin{equation}
-  %   \phi_{n}(\alpha) 
-  %   = g(\bm{s_{n}}+\alpha_{n}\bm_{d_{n}})
-  %       \label{armijo}
-  %   \end{equation}   
+
+  このベクトル$\bm{h}$を一様性ベクトルと考える。
+  \\　まばらな計測結果による散乱係数を$\bm{s_{0}}$とする。これを$\bm{h}$ができるだけスパース性を満たすように繰り返し更新し、実際の密計測データ$\bm{s}$を推定する。そこで
+      $p$($0<p<1$)を用いて評価関数$f(\bm{h})$を次式のように定める。
+      \begin{equation}
+        f(\bm{h})=\sum_{l}|h(\bm{r_{ml}})|^{p}
+        \end{equation}
+      
+      関数$f(\bm{h({\bm{s}})})$の$\bm{s}$に関する勾配を求め、ステップ幅$\alpha_{t}$を用いて$\bm{s_{t}}$を更新する。
+      \begin{equation}
+        \bm{s_{t+1}}=\bm{s_{t}}-\alpha_{t}\nabla_{\bm{s}}*f(\bm{s_{t}})
+        \end{equation}
+      
+  　ステップ幅$\alpha$は以下のようにArmijoの定理を用いて決定される。まず$\alpha$を仮定する。
+
+  \begin{equation}
+    \phi_{n}(\alpha) 
+    = g(\bm{s_{n}}+\alpha\bm_{d_{n}})
+        \label{armijo}
+    \end{equation}   
   
-    \begin{equation}
-      \phi_{n}(\alpha) \leqq g(\bm{s_{n}})+c(\nabla_{\bm{s}}g(\bm{s_{n}})\bm{d_{n}}+\nabla_{\bm{s^{*}}}g(\bm{s_{n}})\bm{d^{*}_{n}})\alpha_{n}
-          \label{armijocondition}
-      \end{equation}  
+  また現在の$g(\bm{s_{t}})$を通る勾配方向の直線と式(\ref{armijo})を比較して、式(\ref{armijocondition})
+  を満たしたときの$\alpha$をそのループでのステップ幅とする。
+
+  \begin{equation}
+    \phi_{n}(\alpha) \leqq g(\bm{s_{n}})+c(\nabla_{\bm{s}}g(\bm{s_{n}})\bm{d_{n}}+\nabla_{\bm{s^{*}}}g(\bm{s_{n}})\bm{d^{*}_{n}})\alpha_{n}
+        \label{armijocondition}
+    \end{equation}
+
+  　このようにして１ループごとに$\alpha$を定め、  
+  として評価関数$f$が十分収束するまで$\bm{s}$の更新を行い、最終的に$h(\bm{r_{m}})$が極大を示す場所$\bm{r_{m}}$に目標物が埋まっていると考えられる。この手順に
+  よってまばらな点数での計測を可能にしている。
+          
 
 \chapter{提案手法}
 \section{従来の手法}
