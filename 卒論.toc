@@ -4,8 +4,13 @@
 \contentsline {chapter}{\numberline {第2章}関連技術}{3}{}%
 \contentsline {section}{\numberline {2.1}地中レーダの原理}{3}{}%
 \contentsline {section}{\numberline {2.2}電磁波と偏波}{4}{}%
-\contentsline {section}{\numberline {2.3}圧縮センシングとモデル内一様性による圧縮}{5}{}%
-\contentsline {chapter}{\numberline {第3章}提案手法}{5}{}%
-\contentsline {section}{\numberline {3.1}従来の手法}{5}{}%
-\contentsline {section}{\numberline {3.2}提案手法todo:ここ大分書き換える}{6}{}%
-\contentsline {chapter}{参考文献}{8}{}%
+\contentsline {section}{\numberline {2.3}ポアンカレ球}{5}{}%
+\contentsline {section}{\numberline {2.4}圧縮センシングとモデル内一様性による圧縮}{5}{}%
+\contentsline {section}{\numberline {2.5}圧縮センシングとスパース性}{5}{}%
+\contentsline {section}{\numberline {2.6}モデル内一様性による圧縮センシング}{6}{}%
+\contentsline {section}{\numberline {2.7}MBHを用いた圧縮センシング}{7}{}%
+\contentsline {chapter}{\numberline {第3章}提案手法}{10}{}%
+\contentsline {section}{\numberline {3.1}従来の手法}{10}{}%
+\contentsline {section}{\numberline {3.2}提案手法todo:ここ大分書き換える}{11}{}%
+\contentsline {chapter}{\numberline {第4章}実験と}{13}{}%
+\contentsline {chapter}{参考文献}{14}{}%

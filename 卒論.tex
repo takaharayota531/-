@@ -16,6 +16,7 @@
 \usepackage{etoolbox}
 \usepackage{physics} 
 \usepackage{amssymb}
+\usepackage{amsmath}
 \patchcmd{\chapter}{\cleardoublepage}{}{}{}
 \patchcmd{\chapter}{\clearpage}{}{}{}
 
@@ -479,6 +480,88 @@ $p$($0<p<1$)を用いて評価関数$f(\bm{h})$を次式のように定める。
 よってまばらな点数での計測を可能にしている。
 
 
+\begin{equation}
+  \frac{\partial s(\bm{r},f_{k})}{\partial s(\bm{r},f_{k})}
+  = \sum_{\bm{r_{ml}}}  \frac{\partial |h(\bm{r_{ml}})|^{p} }{\partial s(\bm{r},f_{k})}
+  =p \sum_{\bm{r_{ml}}} |h(\bm{r_{ml}})|^{p-1} \frac{\partial h(\bm{r_{ml}}) }{\partial s(\bm{r},f_{k})}  \frac{ h(\bm{r_{ml}}) }{ |h(\bm{r_{ml}}) |}
+      \label{sの偏微分の再定義}
+  \end{equation}
+
+
+  \begin{equation}
+    z = x + jy
+        \label{z}
+    \end{equation}
+  
+
+\begin{equation}
+  \frac{\partial f}{\partial z}
+  =\dfrac{1}{2}(\frac{\partial f}{\partial x} - j \frac{\partial f}{\partial y})
+      \label{fのz偏微分}
+  \end{equation}
+
+  \begin{equation}
+    \frac{\partial f}{\partial z^{*}}
+    =\dfrac{1}{2}(\frac{\partial f}{\partial x} + j \frac{\partial f}{\partial y})
+        \label{fの共役z偏微分}
+    \end{equation}
+  
+\begin{equation}
+  \left(
+    \frac{\partial f}{\partial z}
+    \right)
+    ^{*}
+  =\frac{\partial f^{*}}{\partial z^{*}}
+      \label{conjugationrule0}
+  \end{equation}    
+
+  \begin{equation}
+    \left(
+      \frac{\partial f}{\partial z^{*}}
+      \right)
+      ^{*}
+    =\frac{\partial f^{*}}{\partial z}
+        \label{conjugationrule1}
+    \end{equation}    
+
+\begin{equation}
+  df
+  =\frac{\partial f}{\partial z}dz +  \frac{\partial f}{\partial z^{*}}dz^{*}
+      \label{fの全微分}
+  \end{equation}    
+
+\begin{equation}
+  dx=\frac{1}{2}(dz+dz^{*})
+\end{equation}
+\begin{equation}
+  dy=\frac{1}{2i}(dz-dz^{*})
+\end{equation}
+
+\begin{equation}
+  \begin{split}
+  df
+  &=\frac{\partial f}{\partial x}dx +  \frac{\partial f}{\partial y}dy
+  \\
+  &=\frac{\partial f}{\partial x}
+  \left(
+    \frac{1}{2}(dz+dz^{*})
+  \right)
+  +  \frac{\partial f}{\partial y}
+  \left(
+    \frac{1}{2i}(dz-dz^{*})
+  \right)
+  \\
+  &=\frac{1}{2}
+  \left[
+    \frac{\partial f}{\partial x} - j \frac{\partial f}{\partial y}
+  \right]dz+
+  \frac{1}{2}
+  \left[
+    \frac{\partial f}{\partial x} + j \frac{\partial f}{\partial y}
+  \right]dz^{*}
+      \label{wirtinger}    
+  \end{split}
+  \end{equation}    
 
 \section{提案手法todo:ここ大分書き換える}
 　従来手法のようにパイプ管をモデル化し、それによって圧縮センシングを行うことを提案する。パイプ管をモデル化する際にまず文献\cite{imai}のように一様とみなせる領域を考える。パイプのような線状の物体は線方向に一様である。
@@ -560,6 +643,8 @@ $p$($0<p<1$)を用いて評価関数$f(\bm{h})$を次式のように定める。
       \label{polarimetricdiffSVV}
       \end{equation}
 
+
+\chapter{実験と}
 
 \clearpage
 
